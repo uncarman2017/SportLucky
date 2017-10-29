@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FiveCoachService Test</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <h2>FiveCoachService Test</h2>
+    <fieldset>
+        <legend>用户相关服务接口</legend>
+        <input type="button" id="btnSendValidationCode" value="SendValidationCode" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnRegister" value="Register" style="background-color:#00ff21" />&nbsp;&nbsp;
+
+        <input type="button" id="btnLogin" value="Login" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnUpdatePwd" value="UpdatePwd" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnSearchCoach" value="SearchCoach" style="background-color:#ef3a3a;color:white" />&nbsp;&nbsp;
+        <input type="button" id="btnGetCoachDetail" value="GetCoachDetail" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnUpdateCoachDetail" value="UpdateCoachDetail" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnSearchGuest" value="SearchGuest" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnUpdateUserInfo" value="UpdateUserInfo" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnSubmitUserPhoto" value="SubmitUserPhoto" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnRemoveUserPhoto" value="RemoveUserPhoto" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnFocusUser" value="FocusUser" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnGetUserDetail" value="GetUserDetail" style="background-color:#00ff21" />&nbsp;&nbsp;
+
+    </fieldset>
+
+    <fieldset>
+        <legend>课程相关服务接口</legend>
+        <input type="button" id="btnBookingCourse" value="BookingCourse" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnGetCourseNotification" value="GetCourseNotification" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnUpdateCourseBooking" value="UpdateCourseBooking" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnCancelCourseBooking" value="CancelCourseBooking" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnGetMyUncompletedBookingInfo" value="GetMyUncompletedBookingInfo" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnSubmitCourseComment" value="SubmitCourseComment" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnGetMyCompletedBookingInfo" value="GetMyCompletedBookingInfo" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnGetMyCourseList" value="GetMyCourseList" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnGetMyCoachList" value="GetMyCoachList" style="background-color:#00ff21" />&nbsp;&nbsp;
+        <input type="button" id="btnGetMyCourseNameList" value="GetMyCourseNameList" style="background-color:#00ff21" />&nbsp;&nbsp;
+
+    </fieldset>
+    <script type="text/javascript">
+        $("#btnSendValidationCode").on("click",
+            function (e) {
+                //    alert(e.currentTarget.value);
+                $.ajax({
+                    url: "http://localhost:60444/api/SendValidationCode/mobile/" + "13023228090",
+                    type: "GET",
+                    //callback: "CallbackFunc1",
+                    success: function (responseData) {
+                        alert(responseData.ResultMessage);
+                    },
+                    error: function (request) {
+                        alert("Error");
+                    }
+                    //contentType: "application/json",
+                    //dataType: "jsonp"
+                });
+
+            });
+
+        //function CallbackFunc1(responseData) {
+        //    alert(responseData);
+
+        //}
+
+        $("#btnRegister").on('click',
+             function (e) {
+
+                 $.ajax({
+                     url: "http://localhost:60444/api/Register",
+                     // url: "http://localhost/FiveStarCoachService/api/Register",
+                     dataType: "json",
+                     //crossDomain: true,
+                     type: "POST",
+                     //data: $("#fmRegister").serialize(),
+                     data: {
+                         "UserName": "Coco Yu",
+                         "Pwd": "redmaple",
+                         "UserType": 2,
+                         "Mobile": "13023228090",
+                         "ValidationCode": "123456"
+
+                     },
+                     success: function (responseData) {
+                         alert(responseData.ResultMessage);
+                     },
+                     error: function (request) {
+                         alert("Error");
+                     }
+                     //contentType: "application/json;charset=UTF-8",
+                     //dataType: "jsonp",
+                     //jsonpCallback: "CallbackFunc1"
+                 });
+             }
+        );
+
+        $("#btnLogin").on('click',
+           function (e) {
+               $.ajax({
+                   url: "http://localhost:60444/api/Login",
+                   dataType: "json",
+                   type: "POST",
+                   data: {
+                       "Pwd": "redmaple",
+                       "UserType": 1,
+                       "Mobile": "15000429206"
+
+                   },
+                   success: function (responseData) {
+                       alert(responseData.ResultMessage);
+                   },
+                   error: function (request) {
+                       alert("Error");
+                   }
+
+               });
+           });
+
+        $("#btnUpdatePwd").on("click",
+            function (e) {
+                $.ajax({
+                    url: "http://localhost:60444/api/UpdatePwd",
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        "Mobile": "18939748695",
+                        "NewPwd": "redmaple",
+                        "UserID": 3,
+                        "ValidationCode": "123456"
+                    },
+                    success: function (responseData) {
+                        alert(responseData.ResultMessage);
+                    },
+                    error: function (request) {
+                        alert("Error");
+                    }
+
+                });
+            });
+
+        $("#btnSearchCoach").on("click",
+            function (e) {
+                $.ajax({
+                    url: "http://localhost:60444/api/SearchCoach",
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        "Keyword": "Kale",
+                        "CourseName": "普拉提"
+                    },
+                    success: function (responseData) {
+                        alert(responseData.ResultMessage);
+                    },
+                    error: function (request) {
+                        alert("Error");
+                    }
+
+                });
+            });
+
+        $("#btnGetCoachDetail").on("click",
+            function (e) {
+                $.ajax({
+                    url: "http://localhost:60444/api/GetCoachDetail/CoachNumber/C000001",
+                    dataType: "json",
+                    type: "GET",
+
+                    success: function (responseData) {
+                        alert(responseData.ResultMessage);
+                    },
+                    error: function (request) {
+                        alert("Error");
+                    }
+
+                });
+
+            });
+
+        $("#btnUpdateCoachDetail").on("click",
+           function (e) {
+               $.ajax({
+                   url: "http://localhost:60444/api/UpdateCoachDetail",
+                   dataType: "json",
+                   type: "POST",
+                   data: {
+                       "CoachNumber": "C000002",
+                       "BriefIntroduction": "超级丸",
+                       "ContactInfo": "不告诉你",
+                       "CourseDesc": "搏击，械斗",
+                       "GymID": 1,
+                       "HeadPortraitUri": "unknown",
+                       "HonorDesc": "五星私人教练，搏击专家",
+                       Level: 5,
+                       PersonalSign: "我非常爱五星私人教练App"
+                   },
+                   success: function (responseData) {
+                       alert(responseData.ResultMessage);
+                   },
+                   error: function (request) {
+                       alert("Error");
+                   }
+
+               });
+           });
+
+        $("#btnSearchGuest").on("click",
+           function (e) {
+               $.ajax({
+                   url: "http://localhost:60444/api/searchguest/mobile/18939748695",
+                   dataType: "json",
+                   type: "GET",
+
+                   success: function (responseData) {
+                       alert(responseData.ResultMessage);
+                   },
+                   error: function (request) {
+                       alert("Error");
+                   }
+
+               });
+
+           });
+
+        $("#btnUpdateUserInfo").on("click",
+           function (e) {
+               $.ajax({
+                   url: "http://localhost:60444/api/UpdateUserInfo",
+                   dataType: "json",
+                   type: "POST",
+                   data: {
+                       "Mobile": "18939748695",
+                       "NickName": "麦麦Max_888",
+                       "TrueName": "俞佳玮",
+                       "UserID": 3,
+                       "AreaInfo": "地球",
+                       "PersonalSign": "我思故我在"
+                   },
+                   success: function (responseData) {
+                       alert(responseData.ResultMessage);
+                   },
+                   error: function (request) {
+                       alert("Error");
+                   }
+
+               });
+           });
+
+        $("#btnSubmitUserPhoto").on("click",
+          function (e) {
+              $.ajax({
+                  url: "http://localhost:60444/api/SubmitUserPhoto",
+                  dataType: "json",
+                  type: "POST",
+                  data: {
+                      "UserID": 2,
+                      "PhotoUrl": "http://localhost:60444/UserPhoto",
+                      "PhotoDesc": "Test"
+                  },
+                  success: function (responseData) {
+                      alert(responseData.ResultMessage);
+                  },
+                  error: function (request) {
+                      alert("Error");
+                  }
+
+              });
+          });
+
+
+    </script>
+
+    <script>
+        $("#btnBookingCourse").on("click",
+          function (e) {
+              $.ajax({
+                  url: "http://localhost:60444/api/BookingCourse",
+                  dataType: "json",
+                  type: "POST",
+                  data: {
+                      "CoachNumber": "C000001",
+                      "CourseNumber": "N0001",
+                      "CourseTime": "2015-07-19 20:00:00",
+                      "Hours": 3,
+                      "IsDelegated": false,
+                      "UserID": 3
+                  },
+                  success: function (responseData) {
+                      alert(responseData.ResultMessage);
+                  },
+                  error: function (request) {
+                      alert("Error");
+                  }
+
+              });
+
+          });
+
+
+        $("#btnGetCourseNotification").on("click",
+            function (e) {
+                $.ajax({
+                    url: "http://localhost:60444/api/GetCourseNotification/userID/3",
+                    dataType: "json",
+                    type: "GET",
+                    success: function (responseData) {
+                        alert(responseData.ResultMessage);
+                    },
+                    error: function (request) {
+                        alert("Error");
+                    }
+
+                });
+            });
+
+        $("#btnUpdateCourseBooking").on("click",
+            function (e) {
+                $.ajax({
+                    url: "http://localhost:60444/api/UpdateCourseBooking",
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        "CourseBookingID": 1,
+                        "BookingTime": "2015-07-20 12:00:00",
+                        "Hours": 2,
+                        "CourseTime": "2015-07-25 12:00:00"
+                    },
+                    success: function (responseData) {
+                        alert(responseData.ResultMessage);
+                    },
+                    error: function (request) {
+                        alert("Error");
+                    }
+
+                });
+            });
+
+        $("#btnCancelCourseBooking").on("click",
+            function (e) {
+                $.ajax({
+                    url: "http://localhost:60444/api/CancelCourseBooking/CourseBookingID/2",
+                    dataType: "json",
+                    type: "GET",
+
+                    success: function (responseData) {
+                        alert(responseData.ResultMessage);
+                    },
+                    error: function (request) {
+                        alert("Error");
+                    }
+
+                });
+
+            });
+
+        $("#btnGetMyUncompletedBookingInfo").on("click",
+            function (e) {
+                $.ajax({
+                    url: "http://localhost:60444/api/GetMyUncompletedBookingInfo/UserID/3",
+                    dataType: "json",
+                    type: "GET",
+
+                    success: function (responseData) {
+                        alert(responseData.ResultMessage);
+                    },
+                    error: function (request) {
+                        alert("Error");
+                    }
+
+                });
+
+            });
+
+
+        $("#btnSubmitCourseComment").on("click",
+           function (e) {
+               $.ajax({
+                   url: "http://localhost:60444/api/SubmitCourseComment",
+                   dataType: "json",
+                   type: "POST",
+                   data: {
+                       "UserID": 2,
+                       "CoachComment": "课程结束，效果不错，学员比较努力XXXXX",
+                       "CourseBookingID": 1,
+                       "CourseNumber": "N0001",
+                       "CoachNumber": "C000001"
+                   },
+                   success: function (responseData) {
+                       alert(responseData.ResultMessage);
+                   },
+                   error: function (request) {
+                       alert("Error");
+                   }
+
+               });
+           });
+
+        $("#btnGetMyCompletedBookingInfo").on("click",
+          function (e) {
+              $.ajax({
+                  url: "http://localhost:60444/api/GetMyCompletedBookingInfo/UserID/3",
+                  dataType: "json",
+                  type: "GET",
+
+                  success: function (responseData) {
+                      alert(responseData.ResultMessage);
+                  },
+                  error: function (request) {
+                      alert("Error");
+                  }
+
+              });
+
+          });
+
+        $("#btnGetMyCourseList").on("click",
+          function (e) {
+              $.ajax({
+                  url: "http://localhost:60444/api/GetMyCourseList/UserID/3",
+                  dataType: "json",
+                  type: "GET",
+
+                  success: function (responseData) {
+                      alert(responseData.ResultMessage);
+                  },
+                  error: function (request) {
+                      alert("Error");
+                  }
+
+              });
+
+          });
+
+        $("#btnGetMyCoachList").on("click",
+           function (e) {
+               $.ajax({
+                   url: "http://localhost:60444/api/GetMyCoachList",
+                   dataType: "json",
+                   type: "POST",
+                   data: {
+                       "UserID": 2,
+                       "CourseNumber": "N0001"
+                   },
+                   success: function (responseData) {
+                       alert(responseData.ResultMessage);
+                   },
+                   error: function (request) {
+                       alert("Error");
+                   }
+
+               });
+           });
+
+        $("#btnGetMyCourseNameList").on("click",
+          function (e) {
+              $.ajax({
+                  url: "http://localhost:60444/api/GetMyCourseNameList/UserID/3",
+                  dataType: "json",
+                  type: "GET",
+                  success: function (responseData) {
+                      alert(responseData.ResultMessage);
+                  },
+                  error: function (request) {
+                      alert("Error");
+                  }
+
+              });
+          });
+
+        $("#btnFocusUser").on("click",
+            function (e) {
+                $.ajax({
+                    url: "http://localhost:60444/api/FocusUser",
+                    dataType: "json",
+                    type: "POST",
+                    data: {
+                        "UserID": 2,
+                        "IsInterested": false
+                    },
+                    success: function (responseData) {
+                        alert(responseData.ResultMessage);
+                    },
+                    error: function (request) {
+                        alert("Error");
+                    }
+
+                });
+            });
+
+
+        $("#btnGetUserDetail").on("click",
+          function (e) {
+              $.ajax({
+                  url: "http://localhost:60444/api/GetUserDetail",
+                  dataType: "json",
+                  type: "POST",
+                  data: {
+                      "UserID": 1
+                  },
+                  success: function (responseData) {
+                      alert(responseData.ResultMessage);
+                  },
+                  error: function (request) {
+                      alert("Error");
+                  }
+
+              });
+          });
+    </script>
+</body>
+
+</html>

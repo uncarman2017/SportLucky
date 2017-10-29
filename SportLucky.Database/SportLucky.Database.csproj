@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E577180-0311-4F65-AB49-7D0F2D60B3B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SportLucky.Database</RootNamespace>
+    <AssemblyName>deploy_sportlucky</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="deployment\LOCAL.DBDeployment.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="db\sprocs\sp_AddGymDetail.sql" />
+    <Content Include="db\sprocs\sp_AddSmsValidationCode.sql" />
+    <Content Include="db\sprocs\sp_ApproveCoach.sql" />
+    <Content Include="db\sprocs\sp_ApproveGym.sql" />
+    <Content Include="db\sprocs\sp_BookingCourse.sql" />
+    <Content Include="db\sprocs\sp_CancelBookingByCoach.sql" />
+    <Content Include="db\sprocs\sp_CancelBookingByCustomer.sql" />
+    <Content Include="db\sprocs\sp_CheckIn.sql" />
+    <Content Include="db\sprocs\sp_ConfirmBookingByCoach.sql" />
+    <Content Include="db\sprocs\sp_ConsumeSmsValidationCode.sql" />
+    <Content Include="db\sprocs\sp_GetCourseBookingDetail.sql" />
+    <Content Include="db\sprocs\sp_GetGymDetail.sql" />
+    <Content Include="db\sprocs\sp_GetMyBookingList.sql" />
+    <Content Include="db\sprocs\sp_GetMyCollection.sql" />
+    <Content Include="db\sprocs\sp_GetMySiteLetter.sql" />
+    <Content Include="db\sprocs\sp_GetSmsValidationCode.sql" />
+    <Content Include="db\sprocs\sp_Login.sql" />
+    <Content Include="db\sprocs\sp_Register.sql" />
+    <Content Include="db\sprocs\sp_RemoveGymPhoto.sql" />
+    <Content Include="db\sprocs\sp_SubmitCmuNote.sql" />
+    <Content Include="db\sprocs\sp_SubmitCmuNoteComment.sql" />
+    <Content Include="db\sprocs\sp_SubmitCollection.sql" />
+    <Content Include="db\sprocs\sp_SubmitCourseComment.sql" />
+    <Content Include="db\sprocs\sp_UpdateCoachDetail.sql" />
+    <Content Include="db\sprocs\sp_UpdateCourseBooking.sql" />
+    <Content Include="db\sprocs\sp_UpdateGymDetail.sql" />
+    <Content Include="db\sprocs\sp_UpdatePwd.sql" />
+    <Content Include="db\sprocs\sp_ValidateRegisterUser.sql" />
+    <Content Include="db\tables\smsvalidationcode.sql" />
+    <Content Include="db\up\records\v1.0.sql" />
+    <Content Include="db\tables\checkin.sql" />
+    <Content Include="db\tables\citydistrict.sql" />
+    <Content Include="db\tables\cmu_note.sql" />
+    <Content Include="db\tables\cmu_notecomment.sql" />
+    <Content Include="db\tables\coach.sql" />
+    <Content Include="db\tables\coachapproval.sql" />
+    <Content Include="db\tables\coursebooking.sql" />
+    <Content Include="db\tables\coursecoach.sql" />
+    <Content Include="db\tables\coursecomment.sql" />
+    <Content Include="db\tables\coursegym.sql" />
+    <Content Include="db\tables\coursetype.sql" />
+    <Content Include="db\tables\dictionaryitem.sql" />
+    <Content Include="db\tables\errorlog.sql" />
+    <Content Include="db\tables\gym.sql" />
+    <Content Include="db\tables\gymapproval.sql" />
+    <Content Include="db\tables\gymcomment.sql" />
+    <Content Include="db\tables\gymcorrect.sql" />
+    <Content Include="db\tables\article.sql" />
+    <Content Include="db\tables\loginhistory.sql" />
+    <Content Include="db\tables\mycollection.sql" />
+    <Content Include="db\tables\pointscosumehistory.sql" />
+    <Content Include="db\tables\pointsgainhistory.sql" />
+    <Content Include="db\tables\siteletter.sql" />
+    <Content Include="db\tables\sms.sql" />
+    <Content Include="db\tables\user.sql" />
+    <Content Include="db\tables\userfeedback.sql" />
+    <Content Include="db\up\schema\update_20151017.sql" />
+    <Content Include="db\up\schema\user.sql" />
+    <Content Include="db\up\schema\v1.2.sql" />
+    <Content Include="db\up\schema\v1.1.sql" />
+    <Content Include="db\up\schema\v1.3.sql" />
+    <Content Include="ReadMe.txt" />
+    <Content Include="Tools\RoundhousE\console\rh.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="db\alterDatabase\" />
+    <Folder Include="db\functions\" />
+    <Folder Include="db\indexes\" />
+    <Folder Include="db\permissions\" />
+    <Folder Include="db\runAfterOtherAnyTimeScript\" />
+    <Folder Include="db\runFirstAfterUp\" />
+    <Folder Include="db\views\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+<MSBuild Projects="DBDeploy_MSBuild.proj"
+Properties="VersionAssembly=$(TargetDir)deploy_sportlucky.dll"/>
+  </Target>
+  -->
+</Project>

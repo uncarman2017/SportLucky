@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08DB3639-154E-4F13-9999-68DC13A126C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SportLucky.Service.Contract</RootNamespace>
+    <AssemblyName>SportLucky.Service.Contract</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\ApproveCoachRequest.cs" />
+    <Compile Include="Admin\ApproveCoachResponse.cs" />
+    <Compile Include="Admin\ApproveGymRequest.cs" />
+    <Compile Include="Admin\ApproveGymResponse.cs" />
+    <Compile Include="Admin\SubmitUserFeedbackRequest.cs" />
+    <Compile Include="Admin\SubmitUserFeedbackResponse.cs" />
+    <Compile Include="BasicData\AddCoachDetailRequest.cs" />
+    <Compile Include="BasicData\AddCoachDetailResponse.cs" />
+    <Compile Include="BasicData\GetCourseTypeListRequest.cs" />
+    <Compile Include="BasicData\GetCourseTypeListResponse.cs" />
+    <Compile Include="BasicData\GetDicItemListRequest.cs" />
+    <Compile Include="BasicData\GetDicItemListResponse.cs" />
+    <Compile Include="BasicData\RemoveCoachPhotoRequest.cs" />
+    <Compile Include="BasicData\RemoveCoachPhotoResponse.cs" />
+    <Compile Include="BasicData\SearchGymResponse.cs" />
+    <Compile Include="BasicData\SubmitGymCorrectionRequest.cs" />
+    <Compile Include="BasicData\SubmitGymCorrectionResponse.cs" />
+    <Compile Include="Community\SubmitCmuNoteCommentRequest.cs" />
+    <Compile Include="Community\SubmitCmuNoteCommentResponse.cs" />
+    <Compile Include="Community\SubmitCmuNoteRequest.cs" />
+    <Compile Include="Community\SubmitCmuNoteResponse.cs" />
+    <Compile Include="CourseBooking\CancelBookingByCoachRequest.cs" />
+    <Compile Include="CourseBooking\CancelBookingByCoachResponse.cs" />
+    <Compile Include="CourseBooking\ConfirmBookingByCoachRequest.cs" />
+    <Compile Include="CourseBooking\ConfirmBookingByCoachResponse.cs" />
+    <Compile Include="CourseBooking\GetCourseBookingDetailRequest.cs" />
+    <Compile Include="CourseBooking\GetCourseBookingDetailResponse.cs" />
+    <Compile Include="CourseBooking\GetMyBookingListRequest.cs" />
+    <Compile Include="CourseBooking\GetMyCollectionRequest.cs" />
+    <Compile Include="CourseBooking\GetMyCollectionResponse.cs" />
+    <Compile Include="CourseBooking\GetMySiteLetterRequest.cs" />
+    <Compile Include="CourseBooking\GetMySiteLetterResponse.cs" />
+    <Compile Include="DTO\CollectionDTO.cs" />
+    <Compile Include="DTO\CourseBookingDTO.cs" />
+    <Compile Include="DTO\GymDTO.cs" />
+    <Compile Include="DTO\SiteLetterDTO.cs" />
+    <Compile Include="IBasicDataService.cs" />
+    <Compile Include="Security\ValidateRegisterResponse.cs" />
+    <Compile Include="Security\ValidateRegisterRequest.cs" />
+    <Compile Include="Security\SendValidationCodeRequest.cs" />
+    <Compile Include="DTO\ArticleDTO.cs" />
+    <Compile Include="DTO\BriefCoachAndGymDTO.cs" />
+    <Compile Include="DTO\CoachDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="IAdminService.cs" />
+    <Compile Include="BasicData\AddGymDetailRequest.cs" />
+    <Compile Include="CourseBooking\CancelBookingByCustomerRequest.cs" />
+    <Compile Include="CourseBooking\CheckInRequest.cs" />
+    <Compile Include="ISecurityService.cs" />
+    <Compile Include="ICourseBookingService.cs" />
+    <Compile Include="BasicData\GetCoachDetailRequest.cs" />
+    <Compile Include="BasicData\GetGymDetailRequest.cs" />
+    <Compile Include="BasicData\GetHomeArticleListRequest.cs" />
+    <Compile Include="BasicData\GetHomeCoachListRequest.cs" />
+    <Compile Include="BasicData\GetUserDetailRequest.cs" />
+    <Compile Include="Security\RegisterRequest.cs" />
+    <Compile Include="BasicData\RemoveGymPhotoRequest.cs" />
+    <Compile Include="BasicData\SearchCoachAndGymRequest.cs" />
+    <Compile Include="BasicData\SearchGymRequest.cs" />
+    <Compile Include="CourseBooking\SubmitCourseCommentRequest.cs" />
+    <Compile Include="CourseBooking\SubmitCollectionRequest.cs" />
+    <Compile Include="Admin\UpdateCoachDetailRequest.cs" />
+    <Compile Include="CourseBooking\UpdateCourseBookingRequest.cs" />
+    <Compile Include="Admin\UpdateGymDetailRequest.cs" />
+    <Compile Include="BasicData\UpdateGymLocationRequest.cs" />
+    <Compile Include="Security\UpdatePwdRequest.cs" />
+    <Compile Include="BasicData\UpdateUserInfoRequest.cs" />
+    <Compile Include="BaseResponse.cs" />
+    <Compile Include="CourseBooking\BookingCourseRequest.cs" />
+    <Compile Include="BasicData\AddGymDetailResponse.cs" />
+    <Compile Include="CourseBooking\BookingCourseResponse.cs" />
+    <Compile Include="DTO\CommonDTO.cs" />
+    <Compile Include="CourseBooking\CheckInResponse.cs" />
+    <Compile Include="BasicData\GetCoachDetailResponse.cs" />
+    <Compile Include="BasicData\GetGymDetailResponse.cs" />
+    <Compile Include="BasicData\GetHomeArticleListResponse.cs" />
+    <Compile Include="BasicData\GetHomeCoachListResponse.cs" />
+    <Compile Include="CourseBooking\GetMyBookingListResponse.cs" />
+    <Compile Include="BasicData\GetUserDetailResponse.cs" />
+    <Compile Include="Security\RegisterResponse.cs" />
+    <Compile Include="CourseBooking\CancelBookingByCustomerResponse.cs" />
+    <Compile Include="BasicData\RemoveGymPhotoResponse.cs" />
+    <Compile Include="BasicData\SearchCoachRequest.cs" />
+    <Compile Include="BasicData\SearchCoachAndGymResponse.cs" />
+    <Compile Include="BasicData\SearchCoachResponse.cs" />
+    <Compile Include="Security\SendValidationCodeResponse.cs" />
+    <Compile Include="CourseBooking\SubmitCourseCommentResponse.cs" />
+    <Compile Include="CourseBooking\SubmitCollectionResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\LoginRequest.cs" />
+    <Compile Include="Security\LoginResponse.cs" />
+    <Compile Include="Admin\UpdateCoachDetailResponse.cs" />
+    <Compile Include="CourseBooking\UpdateCourseBookingResponse.cs" />
+    <Compile Include="Admin\UpdateGymDetailResponse.cs" />
+    <Compile Include="BasicData\UpdateGymLocationResponse.cs" />
+    <Compile Include="Security\UpdatePwdResponse.cs" />
+    <Compile Include="BasicData\UpdateUserInfoResponse.cs" />
+    <Compile Include="ICommunityService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

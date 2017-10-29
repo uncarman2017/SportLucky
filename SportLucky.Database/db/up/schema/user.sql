@@ -1,0 +1,1 @@
+﻿ALTER TABLE coursecomment CONVERT TO CHARACTER SET utf8;
